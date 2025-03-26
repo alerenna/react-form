@@ -45,6 +45,29 @@ export default function App() {
           <h1 className=" d-flex text-center p-2 align-items-center justify-content-center">{post.title}</h1>
         </div>
       ))}
+
+      <form className="row g-3 needs-validation p-5 ">
+
+        <div class="mb-3">
+          <label for="" class="form-label">Nuovo articolo</label>
+          <input
+            type="text"
+            class="form-control"
+            name="new_article"
+            id="new_article"
+            aria-describedby="newArticleHelpId"
+            placeholder="Il tuo titolo qui"
+          />
+          <small id="newArticleHelpId" class="form-text text-muted">Inserisci il titolo del nuovo articolo</small>
+        </div>
+
+        <div className="col-12">
+          <button className="btn btn-primary" type="submit">Inserisci nuovo articolo</button>
+        </div>
+      </form>
+
+
+
     </>
 
 
