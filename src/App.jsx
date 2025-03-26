@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Cards from "./components/Cards";
 
 const postList = [
   {
@@ -54,10 +55,15 @@ export default function App() {
 
     console.log(newPost);
 
-    setPosts([...posts, newPost])
+    setPosts([...posts, { id: posts[posts.length - 1].id + 1, ...newPost }])
+    setNewPost({ title: '', author: '', date: '', content: '' })
 
     console.log(posts);
 
+  }
+
+  function deletePost(id) {
+    setPosts(posts.filter(post => post.id !== id))
   }
 
 
@@ -134,12 +140,8 @@ export default function App() {
 
 
       <ul className="list-group">
-        {posts.map((post, index) => (
-          <li key={`post-${index}`}
-            className=" d-flex text-center p-2 align-items-center justify-content-center">
-            {post.title}
-          </li>
-        ))}
+        <h1 className="text-center">Lista Post</h1>
+        <Cards posts={posts} onDelete={deletePost} />
       </ul>
 
     </>
